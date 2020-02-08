@@ -1,14 +1,14 @@
-import {db} from "../../config/FirebaseConfig";
+import {db, storageRef} from "../../config/FirebaseConfig";
 
-export const signIn = (credentials) =>{
-    return(dispatch, getState, {getFirebase})=>{
+export const signIn = (credentials) => {
+    return (dispatch, getState, {getFirebase}) => {
         const firebase = getFirebase();
         firebase.auth().signInWithEmailAndPassword(
             credentials.email,
             credentials.password
-        ).then(()=>{
+        ).then(() => {
             dispatch({type: 'LOGIN_SUCCESS'});
-        }).catch((err)=>{
+        }).catch((err) => {
             dispatch({type: 'LOGIN_ERROR', err});
         });
     }
@@ -30,14 +30,19 @@ export const signUp = (newUser) => {
             newUser.email,
             newUser.password
         ).then((res) => {
-            return db.collection('users').doc(res.user.uid).set({
-                firstName: newUser.firstName,
-                lastName: newUser.lastName,
-                initials: newUser.firstName[0] + newUser.lastName[0]
-            }).then(() => {
-                dispatch({type: 'SIGNUP_SUCCESS'});
-            }).catch((err) => {
-                dispatch({type:'SIGNUP_ERROR',err})
+            return storageRef.child('images/' + res.user.uid).put(newUser.imageUrl).then(() => {
+                storageRef.child('images/' + res.user.uid).getDownloadURL().then((downloadUrl) => {
+                    db.collection('users').doc(res.user.uid).set({
+                        firstName: newUser.firstName,
+                        lastName: newUser.lastName,
+                        initials: newUser.firstName[0] + newUser.lastName[0],
+                        imageUrl: downloadUrl
+                    }).then(() => {
+                        dispatch({type: 'SIGNUP_SUCCESS'});
+                    }).catch((err) => {
+                        dispatch({type: 'SIGNUP_ERROR', err})
+                    });
+                });
             });
         });
     };

@@ -8,13 +8,20 @@ class SignUp extends Component {
         email: '',
         password: '',
         firstName: '',
-        lastName: ''
+        lastName: '',
+        imageUrl: ''
     };
 
     handleChange = (e) => {
         this.setState({
             [e.target.id]: e.target.value
         });
+    };
+    handleImage = (e) => {
+        const image = e.target.files[0];
+        this.setState({
+            imageUrl: image
+        })
     };
     handleSubmit = (e) => {
         e.preventDefault();
@@ -23,7 +30,7 @@ class SignUp extends Component {
 
     render() {
         const {auth, authError} = this.props;
-        if (auth.uid) return <Redirect to={'/'}/>
+        if (auth.uid) return <Redirect to={'/'}/>;
         return (
             <div className={"container"}>
                 <form className="card white" onSubmit={this.handleSubmit}>
@@ -44,6 +51,10 @@ class SignUp extends Component {
                     <div className="input-field">
                         <label htmlFor="password">Password</label>
                         <input type="password" id="password" onChange={this.handleChange}/>
+                    </div>
+                    <div className="input-field">
+                        <input type="file" name="imageUrl" id="imageUrl" accept={'images/*'}
+                               onChange={this.handleImage}/>
                     </div>
                     <div className="input-field">
                         <button className="btn pink lighten-1 z-depth-0">Sign Up</button>
