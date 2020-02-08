@@ -2,9 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b79e477c-5a4d-4427-ae28-a1928e13cc9c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.firebase/hosting.ZGlzdA.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/hosting.ZGlzdA.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/auth/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/auth/SignUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/projects/CreateProject.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/projects/CreateProject.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/asset-manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/precache-manifest.823ba0efcd4de4a99eca9d51f00a307d.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/service-worker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/static/css/main.d41a14ac.chunk.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/static/css/main.d41a14ac.chunk.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/static/js/2.7e587062.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/static/js/2.7e587062.chunk.js.LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/static/js/2.7e587062.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/static/js/main.b64dc353.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/static/js/main.b64dc353.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/static/js/runtime-main.3a319ec1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/static/js/runtime-main.3a319ec1.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/auth/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/auth/SignIn.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/config/FirebaseConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/FirebaseConfig.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,9 +97,9 @@
       <recent name="$PROJECT_DIR$/public/images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/dist" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/dist" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -133,7 +151,7 @@
       <workItem from="1580738426244" duration="5284000" />
       <workItem from="1580807957885" duration="24000" />
       <workItem from="1581064415366" duration="26616000" />
-      <workItem from="1581172638192" duration="13714000" />
+      <workItem from="1581172638192" duration="15344000" />
     </task>
     <task id="LOCAL-00001" summary="add firebase storage for users to add profile images">
       <created>1581182637210</created>
@@ -142,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581182637210</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add form validation to all forms">
+      <created>1581194820071</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1581194820071</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,16 +192,17 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="add firebase storage for users to add profile images" />
-    <option name="LAST_COMMIT_MESSAGE" value="add firebase storage for users to add profile images" />
+    <MESSAGE value="Add form validation to all forms" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add form validation to all forms" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1024" y="22" width="807" height="746" key="CommitChangelistDialog2" timestamp="1581182636936">
+    <state x="1090" y="22" width="807" height="746" key="CommitChangelistDialog2" timestamp="1581194819800">
       <screen x="1024" y="0" width="1366" height="768" />
     </state>
-    <state x="1024" y="22" width="807" height="746" key="CommitChangelistDialog2/1024.0.1366.768/0.26.1024.742@1024.0.1366.768" timestamp="1581182636936" />
+    <state x="1090" y="22" width="807" height="746" key="CommitChangelistDialog2/1024.0.1366.768/0.26.1024.742@1024.0.1366.768" timestamp="1581194819800" />
     <state width="438" height="606" key="Diff.GoToChangePopup" timestamp="1581114262854">
       <screen x="1024" y="0" width="1366" height="768" />
     </state>
@@ -262,10 +288,10 @@
     </state>
     <state x="1204" y="32" key="SettingsEditor/1024.0.1366.768/0.26.1024.742@1024.0.1366.768" timestamp="1581176195049" />
     <state x="1517" y="32" key="SettingsEditor/1337.0.1366.768/0.76.1024.768@1337.0.1366.768" timestamp="1580738401687" />
-    <state x="1303" y="127" key="Vcs.Push.Dialog.v2" timestamp="1581114274844">
+    <state x="1303" y="127" key="Vcs.Push.Dialog.v2" timestamp="1581195024456">
       <screen x="1024" y="0" width="1366" height="768" />
     </state>
-    <state x="1303" y="127" key="Vcs.Push.Dialog.v2/1024.0.1366.768/0.26.1024.742@1024.0.1366.768" timestamp="1581114274844" />
+    <state x="1303" y="127" key="Vcs.Push.Dialog.v2/1024.0.1366.768/0.26.1024.742@1024.0.1366.768" timestamp="1581195024456" />
     <state x="1124" y="126" width="1166" height="542" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1581084885895">
       <screen x="1024" y="0" width="1366" height="768" />
     </state>
@@ -280,10 +306,10 @@
       <screen x="1024" y="0" width="1366" height="768" />
     </state>
     <state x="1371" y="176" width="672" height="677" key="run.anything.popup/1024.0.1366.768/0.26.1024.742@1024.0.1366.768" timestamp="1581182364846" />
-    <state x="1370" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1581194358884">
+    <state x="1370" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1581196257022">
       <screen x="1024" y="0" width="1366" height="768" />
     </state>
-    <state x="1370" y="89" width="672" height="678" key="search.everywhere.popup/1024.0.1366.768/0.26.1024.742@1024.0.1366.768" timestamp="1581194358884" />
+    <state x="1370" y="89" width="672" height="678" key="search.everywhere.popup/1024.0.1366.768/0.26.1024.742@1024.0.1366.768" timestamp="1581196257022" />
     <state x="1683" y="89" width="672" height="678" key="search.everywhere.popup/1337.0.1366.768/0.76.1024.768@1337.0.1366.768" timestamp="1580743347507" />
   </component>
 </project>

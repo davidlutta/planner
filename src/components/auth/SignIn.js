@@ -6,9 +6,47 @@ import {Redirect} from 'react-router-dom';
 class SignIn extends Component {
     state = {
         email: '',
-        password: ''
+        password: '',
+        emailError: '',
+        passwordError: ''
     };
 
+    validate = (e) => {
+        let emailError = "";
+        if (this.state.email.length === 0) {
+            emailError = "Please enter email";
+            this.setState({
+                passwordError: null,
+                emailError: emailError
+            });
+            return false;
+        } else if (!/\S+@\S+\.\S+/.test(this.state.email)) {
+            emailError = "Invalid Email address";
+            this.setState({
+                passwordError: null,
+                emailError: emailError
+            });
+            return false;
+        }
+
+        let passwordError = '';
+        if (!this.state.password) {
+            passwordError = "please Enter a password";
+            this.setState({
+                emailError: null,
+                passwordError: passwordError
+            });
+            return false;
+        } else if (this.state.password.length <= 6) {
+            passwordError = "Your Password must be more than 6 characters";
+            this.setState({
+                emailError: null,
+                passwordError: passwordError
+            });
+            return false;
+        }
+        return true;
+    };
     handleChange = (e) => {
         this.setState({
             [e.target.id]: e.target.value
@@ -16,8 +54,10 @@ class SignIn extends Component {
     };
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.signIn(this.state);
-        // this.props.history.push('/');
+        const isValid = this.validate();
+        if (isValid) {
+            this.props.signIn(this.state);
+        }
     };
 
     render() {
@@ -32,9 +72,15 @@ class SignIn extends Component {
                         <label htmlFor="email">Email</label>
                         <input type="email" id="email" onChange={this.handleChange}/>
                     </div>
+                    <div className="red-text center">
+                        {this.state.emailError}
+                    </div>
                     <div className="input-field">
                         <label htmlFor="password">Password</label>
                         <input type="password" id="password" onChange={this.handleChange}/>
+                    </div>
+                    <div className="red-text center">
+                        {this.state.passwordError}
                     </div>
                     <div className="input-field">
                         <button className="btn pink lighten-1 z-depth-0">Login</button>
