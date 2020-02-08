@@ -9,13 +9,106 @@ class SignUp extends Component {
         password: '',
         firstName: '',
         lastName: '',
-        imageUrl: ''
+        imageUrl: '',
+        firstNameError: '',
+        lastNameError: '',
+        emailError: '',
+        passwordError: '',
+        profileImageError: ''
     };
 
     handleChange = (e) => {
         this.setState({
             [e.target.id]: e.target.value
         });
+    };
+
+
+    validate = () => {
+        let firstNameError = '';
+        if (!this.state.firstName) {
+            firstNameError = 'Please Enter your first Name';
+            this.setState({
+                lastNameError: null,
+                emailError: null,
+                passwordError: null,
+                profileImageError: null,
+                firstNameError: firstNameError
+            });
+            return false;
+        }
+        let lastNameError = '';
+        if (!this.state.lastName) {
+            lastNameError = "Please Enter your last Name";
+            this.setState({
+                firstNameError: null,
+                emailError: null,
+                passwordError: null,
+                profileImageError: null,
+                lastNameError: lastNameError
+            });
+            return false;
+        }
+
+        let emailError = "";
+        if (this.state.email.length === 0) {
+            emailError = "Please enter email";
+            this.setState({
+                firstNameError: null,
+                lastNameError: null,
+                passwordError: null,
+                profileImageError: null,
+                emailError: emailError
+            });
+            return false;
+        } else if (!/\S+@\S+\.\S+/.test(this.state.email)) {
+            emailError = "Invalid Email address";
+            this.setState({
+                firstNameError: null,
+                lastNameError: null,
+                passwordError: null,
+                profileImageError: null,
+                emailError: emailError
+            });
+            return false;
+        }
+
+        let passwordError = '';
+        if (!this.state.password) {
+            passwordError = "please Enter a password";
+            this.setState({
+                firstNameError: null,
+                lastNameError: null,
+                emailError: null,
+                profileImageError: null,
+                passwordError: passwordError
+            });
+            return false;
+        } else if (this.state.password.length <= 6) {
+            passwordError = "Your Password must be more than 6 characters";
+            this.setState({
+                firstNameError: null,
+                lastNameError: null,
+                emailError: null,
+                profileImageError: null,
+                passwordError: passwordError
+            });
+            return false;
+        }
+
+        let profileImageError = '';
+        if (!this.state.imageUrl) {
+            profileImageError = 'Please pick a profile image';
+            this.setState({
+                firstNameError: null,
+                lastNameError: null,
+                emailError: null,
+                passwordError: null,
+                profileImageError: profileImageError
+            });
+            return false;
+        }
+        return true;
     };
     handleImage = (e) => {
         const image = e.target.files[0];
@@ -25,7 +118,10 @@ class SignUp extends Component {
     };
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.signUp(this.state);
+        const isValid = this.validate();
+        if (isValid) {
+            this.props.signUp(this.state);
+        }
     };
 
     render() {
@@ -40,21 +136,37 @@ class SignUp extends Component {
                         <label htmlFor="firstName">First Name</label>
                         <input type="text" id="firstName" onChange={this.handleChange}/>
                     </div>
+                    <div className="red-text center">
+                        {this.state.firstNameError}
+                    </div>
                     <div className="input-field">
                         <label htmlFor="lastName">Last Name</label>
                         <input type="text" id="lastName" onChange={this.handleChange}/>
+                    </div>
+                    <div className="red-text center">
+                        {this.state.lastNameError}
                     </div>
                     <div className="input-field">
                         <label htmlFor="email">Email</label>
                         <input type="email" id="email" onChange={this.handleChange}/>
                     </div>
+                    <div className="red-text center">
+                        {this.state.emailError}
+                    </div>
                     <div className="input-field">
                         <label htmlFor="password">Password</label>
                         <input type="password" id="password" onChange={this.handleChange}/>
                     </div>
+                    <div className="red-text center">
+                        {this.state.passwordError}
+                    </div>
                     <div className="input-field">
-                        <input type="file" name="imageUrl" id="imageUrl" accept={'images/*'}
+                        <p>Add Profile Picture</p>
+                        <input type="file" name="imageUrl" id="imageUrl" accept={'images/jgp,png'}
                                onChange={this.handleImage}/>
+                    </div>
+                    <div className="red-text center">
+                        {this.state.profileImageError}
                     </div>
                     <div className="input-field">
                         <button className="btn pink lighten-1 z-depth-0">Sign Up</button>
@@ -69,8 +181,8 @@ class SignUp extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return{
-        auth:state.firebase.auth,
+    return {
+        auth: state.firebase.auth,
         authError: state.auth.authError
     }
 };
@@ -79,4 +191,4 @@ const mapDispatchToProps = (dispatch) => {
         signUp: (newUser) => dispatch(signUp(newUser))
     };
 };
-export default connect(mapStateToProps,mapDispatchToProps)(SignUp);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
